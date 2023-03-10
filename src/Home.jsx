@@ -5,6 +5,7 @@ import { toDark, toLight } from "./redux/modeSlice";
 
 const Home = () => {
   const getThemeValue = JSON.parse(localStorage.getItem('themeValue'))
+  console.log(getThemeValue)
   const [isLight, setIsLight] = useState(getThemeValue);
   const dispatch = useDispatch();
 
@@ -17,6 +18,7 @@ const Home = () => {
     if(isLight) dispatch(toDark())
     else dispatch(toLight())
     setIsLight(!isLight)
+    console.log( isLight )
   }
   localStorage.setItem('themeValue', isLight)
   return (
