@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { toDark, toLight } from "./redux/modeSlice";
 
 const Home = () => {
-  const [isLight, setIsLight] = useState(true);
+  const getThemeValue = JSON.parse(localStorage.getItem('themeValue'))
+  const [isLight, setIsLight] = useState(getThemeValue);
   const dispatch = useDispatch();
 
 
@@ -17,6 +18,7 @@ const Home = () => {
     else dispatch(toLight())
     setIsLight(!isLight)
   }
+  localStorage.setItem('themeValue', isLight)
   return (
     <div style={pageStyle}>
       <button onClick={handeClick}>Change mode</button>
