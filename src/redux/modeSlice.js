@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const isLightValue = JSON.parse(localStorage.getItem('themeValue'));
+
 export const modeSlice = createSlice({
     name: 'mode',
     initialState:{
-        isLight: true,
+        isLight: isLightValue,
     },
     reducers:{
      toDark: (state) => {
